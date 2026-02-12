@@ -1,189 +1,83 @@
-📚 OpenLibrary Book Fetcher
+# OpenLibrary Book Fetcher
 
-A simple and efficient Python script that fetches fiction books from the OpenLibrary Search API, filters books published after the year 2000, and saves the results into CSV files.
+A lightweight Python script that retrieves fiction books from the OpenLibrary Search API, filters books published after a specified year (default: 2000), and exports the results to CSV files with summary statistics.
 
-🚀 Features
+---
 
-🔎 Fetches books from the OpenLibrary Search API
+## Overview
 
-📅 Filters books published after 2000
+This script:
 
-👨‍💼 Extracts author names
+* Fetches books from OpenLibrary
+* Filters by minimum publication year
+* Extracts authors and key metadata
+* Generates basic statistics
+* Exports structured CSV files
 
-📊 Generates useful statistics:
+---
 
-Average publication year
+## Installation
 
-Newest book
-
-Oldest book (after 2000)
-
-💾 Saves results into:
-
-filtered_books.csv (full dataset)
-
-sample_books.csv (GitHub-friendly sample)
-
-🛠️ Technologies Used
-
-Python 3
-
-requests (API calls)
-
-csv (data export)
-
-time (performance tracking)
-
-📦 Installation
-1️⃣ Clone the Repository
+```bash
 git clone https://github.com/yourusername/openlibrary-book-fetcher.git
 cd openlibrary-book-fetcher
-
-2️⃣ Install Dependencies
 pip install requests
+```
 
-▶️ Usage
+---
 
-Run the script:
+## Usage
 
+```bash
 python your_script_name.py
+```
 
+The script will automatically fetch, filter, export data, and display summary statistics.
 
-The script will:
+---
 
-Fetch fiction books from OpenLibrary
+## Output Files
 
-Filter books published after 2000
+**filtered_books.csv**
+Full dataset including:
 
-Save results to CSV files
+* Title
+* Authors
+* Publish Year
+* Edition Count
+* Cover ID
+* OpenLibrary Work ID
 
-Display statistics
+**sample_books.csv**
+Smaller subset containing:
 
-📁 Output Files
-📄 filtered_books.csv
+* Title
+* Authors
+* Publish Year
 
-Contains:
+---
 
-Title
+## Configuration
 
-Authors
+Modify parameters directly in the script:
 
-Publish Year
-
-Edition Count
-
-Cover ID
-
-OpenLibrary Work ID
-
-📄 sample_books.csv
-
-A smaller sample file (default: 10 books) containing:
-
-Title
-
-Authors
-
-Publish Year
-
-Perfect for uploading to GitHub without large datasets.
-
-⚙️ Customization
-
-You can modify these parameters inside the script:
-
-Change number of books fetched:
+```python
 get_books_from_api(limit=100)
+filter_books_by_year(all_books, min_year=2000)
+```
 
-Change minimum publication year:
-filter_books_by_year(all_books, min_year=2010)
+To change the search query:
 
-Change search query:
-
-Inside get_books_from_api():
-
+```python
 "q": "fiction"
+```
 
+---
 
-You can replace "fiction" with any genre or keyword.
+## API
 
-📊 Example Console Output
-==================================================
-OpenLibrary Book Fetcher (Search API)
-==================================================
+OpenLibrary Search API
+[https://openlibrary.org/search.json](https://openlibrary.org/search.json)
 
-Collecting 50 books published after 2000...
-Collected 50 books after 2000
-
-Found 50 books published after 2000
-Out of 50 total books fetched
-
-Successfully saved 50 books to 'filtered_books.csv'
-Created sample file 'sample_books.csv' with 10 books
-
-Script completed in 3.42 seconds
-
-Statistics:
- • Average publication year: 2012.6
- • Newest book: 2023
- • Oldest after 2000: 2001
-
-🧠 How It Works
-
-Calls the OpenLibrary Search API
-
-Collects books page by page
-
-Extracts publication year safely
-
-Filters based on year
-
-Cleans and structures data
-
-Saves structured CSV files
-
-📡 API Reference
-
-This project uses the OpenLibrary Search API:
-
-https://openlibrary.org/search.json
-
-
-Documentation:
-https://openlibrary.org/developers/api
-
-❗ Error Handling
-
-The script handles:
-
-API request failures
-
-Missing publication years
-
-Missing author names
-
-File write errors
-
-📈 Performance
-
-Fetches up to 100 books per page
-
-Stops once the desired limit is reached
-
-Displays execution time
-
-🤝 Contributing
-
-Feel free to fork this project and improve it:
-
-Add sorting
-
-Add genre filters
-
-Add data visualization
-
-Convert to a CLI tool
-
-Turn into a web app
-
-Pull requests are welcome 🚀
+Documentation
+[https://openlibrary.org/developers/api](https://openlibrary.org/developers/api)
